@@ -79,7 +79,7 @@ It helps me understand how real-world websites are structured and developed.
 
 ## 👨‍💻 Author
 
-Made by: *Dark Army* (You can change this name)
+Made by: *Dark Army*
 
 ---
 
