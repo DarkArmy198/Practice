@@ -57,14 +57,46 @@
 <body>
     <form id="loginForm">
         <h1>Login</h1>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
         <br><br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <br><br>
         <button type="submit">Login</button>
     </form>
+<script type="module">
+          import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js'
+    import { getAuth , signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js'
 
+        const firebaseConfig = {
+  apiKey: "AIzaSyDmBvUBGQXXFBNgRcxRVOKxUYpXi6DgrT0",
+  authDomain: "website-51e7b.firebaseapp.com",
+  projectId: "website-51e7b",
+  storageBucket: "website-51e7b.firebasestorage.app",
+  messagingSenderId: "164997522735",
+  appId: "1:164997522735:web:6ddc57b571dc65f4bdadda"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+console.log("Firebase initialized successfully");
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+
+    alert("Login Successful!");
+
+    window.location.href = "index.html"; // ya dashboard.html
+
+  } catch (error) {
+    alert(error.code + " : " + error.message);
+  }
+});
+    </script>
 </body>
 </html>
