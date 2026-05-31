@@ -88,14 +88,14 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  try {
-    await createUserWithEmailAndPassword(auth, email, password);
-
-    alert("Account Created Successfully!");
-  } catch (error) {
+ createUserWithEmailAndPassword(auth, email, password)
+ .then((user)=> {
+    alert("Signup Successful!");
+    window.location.href = "Demon_Slayer.html"; // ya dashboard.html
+ })
+ .catch((error) => {
     alert(error.code + " : " + error.message);
-    console.log(error);
-  }
+    });
 });
     </script>
 </body>
