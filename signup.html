@@ -46,7 +46,9 @@
         button:hover {
             background-color: #218838;
         }
-
+p {
+    text-align: center; 
+}
     </style>
 <head>
     <meta charset="UTF-8">
@@ -66,10 +68,14 @@
         <input type="password" id="password" name="password" required>
         <br><br>
         <button type="submit">Sign Up</button>
+        <p>Already have an account? </p>
+        <button type="button" onclick="window.location.href='login.html'">Login</button>
+<p>OR</p>
+<button type="button" id="googleLogin">Login with Google</button>
     </form>
         <script type="module">
           import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js'
-    import { getAuth , createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js'
+    import { getAuth , createUserWithEmailAndPassword , GoogleAuthProvider , signInWithPopup } from 'https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js'
 
         const firebaseConfig = {
   apiKey: "AIzaSyDmBvUBGQXXFBNgRcxRVOKxUYpXi6DgrT0",
@@ -96,6 +102,18 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
  .catch((error) => {
     alert(error.code + " : " + error.message);
     });
+});
+document.getElementById("googleLogin").addEventListener("click", async () => {
+  const provider = new GoogleAuthProvider();
+    try {
+        await signInWithPopup(auth, provider);
+        alert("Google Login Successful!");
+        console.log("Google login successful");
+        window.location.href = "Demon_Slayer.html"; // ya dashboard.html
+    } catch (error) {
+        alert(error.code + " : " + error.message);
+        console.error("Google Login Error:", error);
+    }
 });
     </script>
 </body>
