@@ -97,7 +97,7 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
  createUserWithEmailAndPassword(auth, email, password)
  .then((user)=> {
     alert("Signup Successful!");
-    window.location.href = "Demon_Slayer.html"; // ya dashboard.html
+    window.location.href = "Demon_slayer.html"; // ya dashboard.html
  })
  .catch((error) => {
     alert(error.code + " : " + error.message);
@@ -109,7 +109,7 @@ document.getElementById("googleLogin").addEventListener("click", async () => {
         await signInWithPopup(auth, provider);
         alert("Google Login Successful!");
         console.log("Google login successful");
-        window.location.href = "Demon_Slayer.html"; // ya dashboard.html
+        window.location.href = "Demon_slayer.html"; // ya dashboard.html
     } catch (error) {
         alert(error.code + " : " + error.message);
         console.error("Google Login Error:", error);
