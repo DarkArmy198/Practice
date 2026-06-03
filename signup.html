@@ -49,6 +49,19 @@
 p {
     text-align: center; 
 }
+
+/* notification*/
+
+#notification{
+position: fixed;
+top: 20px;
+right: 20px;
+background-color: #218838;
+color: white;
+padding: 10px ;
+display: none;
+border-radius: 2px;
+}
     </style>
 <head>
     <meta charset="UTF-8">
@@ -56,6 +69,7 @@ p {
     <title>Document</title>
 </head>
 <body>
+    <div id="notification"></div>
     <form id="signupForm">
           <h1>Sign Up</h1>
         <label for="username">Username:</label>
@@ -96,25 +110,34 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
 
  createUserWithEmailAndPassword(auth, email, password)
  .then((user)=> {
-    alert("Signup Successful!");
+    showNotification("Signup Successful!");
     window.location.href = "Demon_slayer.html"; // ya dashboard.html
  })
  .catch((error) => {
-    alert(error.code + " : " + error.message);
+    showNotification(error.code + " : " + error.message);
     });
 });
 document.getElementById("googleLogin").addEventListener("click", async () => {
   const provider = new GoogleAuthProvider();
     try {
         await signInWithPopup(auth, provider);
-        alert("Google Login Successful!");
+        showNotification("Google Login Successful!");
         console.log("Google login successful");
         window.location.href = "Demon_slayer.html"; // ya dashboard.html
     } catch (error) {
-        alert(error.code + " : " + error.message);
+        showNotification(error.code + " : " + error.message);
         console.error("Google Login Error:", error);
     }
 });
+
+function showNotification(message) {
+    let notification = document.getElementById("notification");
+    notification.textContent = message;
+    notification.style.display = "block";
+setInterval(()=>{
+    notification.style.display = "none";
+} , 3000);
+}
     </script>
 </body>
 </html>

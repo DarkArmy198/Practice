@@ -54,9 +54,20 @@
 p {
     text-align: center;
 }
+#notification{
+position: fixed;
+top: 20px;
+right: 20px;
+background-color: #218838;
+color: white;
+padding: 10px ;
+display: none;
+border-radius: 2px;
+}
     </style>
 </head>
 <body>
+    <div id="notification"></div>
     <form id="loginForm">
         <h1>Login</h1>
         <label for="email">Email:</label>
@@ -93,14 +104,24 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
 
-    alert("Login Successful!");
+    showNotification("Login Successful!");
 
     window.location.href = "Demon_slayer.html"; // ya dashboard.html
 
   } catch (error) {
-    alert(error.code + " : " + error.message);
+    showNotification(error.code + " : " + error.message);
   }
 });
+
+function showNotification(message) {
+    let notification = document.getElementById("notification");
+    notification.textContent = message;
+    notification.style.display = "block";
+setInterval(()=>{
+    notification.style.display = "none";
+} , 3000);
+}
+
     </script>
 </body>
 </html>
