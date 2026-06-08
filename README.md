@@ -42,8 +42,7 @@ During this project, I practiced and learned:
 - 📂 Sidebar navigation (in progress / added)
 - ⚡ Smooth UI interaction using JavaScript
 - 🔐 User Authentication system
-- 
-🔑 Sign up / Login (Email & Password)
+- 🔑 Sign up / Login (Email & Password)
  🌐 Login with Google (Firebase Authentication) 
 - 🧩 Modular section-based design
 
