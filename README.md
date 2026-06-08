@@ -44,7 +44,7 @@ During this project, I practiced and learned:
 - 🔐 User Authentication system
 - 
 🔑 Sign up / Login (Email & Password)
-🌐 Login with Google (Firebase Authentication)
+ 🌐 Login with Google (Firebase Authentication) 
 - 🧩 Modular section-based design
 
 ---
